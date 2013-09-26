@@ -1,0 +1,430 @@
+/** Add css rules here for your application. */
+
+body {
+	font-family: sans-serif;
+	margin: 0px;
+	padding: 0px
+}
+
+/** Example rules used by the template application (remove for your app) */
+h1 {
+  font-size: 110%;
+  font-weight: bold;
+  color: #777777;
+  text-align: center;
+}
+
+.sendButton {
+  display: block;
+  font-size: 16pt;
+}
+
+/** Most GWT widgets already have a style name defined */
+.gwt-DialogBox {
+  width: 400px;
+}
+
+.dialogVPanel {
+  margin: 5px;
+}
+
+.serverResponseLabelError {
+  color: red;
+}
+
+/** Set ids using widget.getElement().setId("idOfElement") */
+#closeButton {
+  margin: 15px 6px 6px;
+}
+
+/** Login Page */
+#login-wrapper {
+	margin: 150px auto;
+	width: 500px;
+	border: 1px solid #ccc;
+	padding: 30px 15px;
+	text-align: center;
+}
+
+#login-wrapper #logo img {
+	width: 300px;
+}
+
+
+.fb-button {
+	background-color: #445d92;
+	color: #fff;
+	text-decoration: none;
+	display: inline-block;
+	width: 185px;
+	margin: 30px auto;
+	vertical-align: top;
+	transition-property: background-color;
+	transition-duration: 1s;
+	border-radius: 5px;
+}
+
+.fb-button:hover {
+	background-color: #8ba3cb;
+	transition-property: background-color;
+    transition-duration: 1s;
+}
+
+.fb-button>span {
+	display: inline-block;
+	padding: 10px;
+	font-size: 80%;
+}
+
+.fb-button>i {
+	display: inline-block;
+	position: relative;
+	top: 10px;
+}
+
+.login-button {
+    background-color: #cb533b;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    width: 185px;
+    margin: 30px auto;
+    vertical-align: top;
+    transition-property: background-color;
+    transition-duration: 1s;
+    border-radius: 5px;
+}
+
+.login-button:hover {
+    background-color: #ab331b;
+    transition-property: background-color;
+    transition-duration: 1s;
+}
+
+.login-button>span {
+    display: inline-block;
+    padding: 10px;
+    font-size: 80%;
+}
+
+.login-button>i {
+    display: inline-block;
+    position: relative;
+    top: 10px;
+}
+
+/** Header */
+#header-logo img{
+	height: 50px;
+}
+
+#header-logo {
+	padding: 10px 0px;
+	text-align: center;
+}
+
+#header-navigation {
+	text-align: center;
+	background-color: #eee;
+	margin: 0px;
+	padding: 0px;
+	border-bottom: 1px solid #ddd;
+}
+
+#header-navigation>li {
+	list-style: none;
+	display: inline-block;
+	padding: 0px;
+	margin: 0px;
+}
+
+#header-navigation>li>a {
+	margin: 0px;
+	color: #777;
+	text-decoration: none;
+	padding: 10px 15px;
+	display: inline-block;
+	transition-property: background-color;
+	transition-duration: 0.5s;
+}
+
+#header-navigation>li>a.current-tab {
+	background-color: #ddd;
+	border-bottom: solid 1px #fa0;
+}
+
+#header-navigation>li>a:hover {
+	background-color: #ddd;
+	transition-property: background-color;
+}
+
+/** Footer */
+#pagefooter {
+	font-size: 80%;
+	color: #aaa;
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+}
+
+/** Body */
+#body {
+	padding: 0px 50px;
+}
+
+/** Create Tab */
+form {
+	width: 500px;
+	margin: 50px auto;
+}
+
+form>.form-field {
+	padding: 20px 10px;
+}
+
+form>.form-field>label {
+	display: block;
+	font-size: 80%;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+form>.form-field>input[type=text] {
+	padding: 5px 10px;
+	width: 100%;
+	border: 1px solid #ccc;
+	font-size: 105%;
+}
+
+form>.form-field>textarea {
+    padding: 5px 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    font-size: 105%;
+}
+
+form>.form-field>input[type=submit] {
+	width: 200px;
+	margin: 0px auto;
+	font-size: 105%;
+	display: block;
+	padding: 5px 10px;
+	border: 1px solid #eee;
+	background-color: #357bac;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+}
+
+/** Streams */
+.stream {
+	vertical-align: top;
+	display: inline-block;
+	width: 150px;
+	height: 150px;
+	border: 1px solid #aaa;
+	overflow: hidden;
+	position: relative;
+}
+
+.stream img {
+	height: 150px;
+}
+
+.stream-name {
+	width: 150px;
+	text-align: center;
+	overflow: hidden;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	background: #000;
+	opacity: 0.75;
+	color: #fff;
+}
+
+#view-all-streams .stream {
+	margin: 10px;
+}
+
+#view-all-streams .gallery {
+	width: 700px;
+	margin: 0px auto;
+}
+
+#stream-view {
+	padding: 0px;
+	width: 700px;
+	margin: 0px auto;
+}
+
+#stream-view .cover-image {
+	margin-top: -200px;
+	width: 700px;
+}
+
+#stream-view .cover {
+	width: 700px;
+	height: 150px;
+	overflow: hidden;
+	position: relative;
+}
+
+#stream-view .name {
+	position: absolute;
+	bottom: 0px;
+	padding: 10px;
+	text-align: center;
+	opacity: 0.75;
+	width: 700px;
+	background: #000;
+	color: #fff;
+	font-size: 120%;
+}
+
+#stream-view .description-panel {
+	padding: 10px 0px;
+}
+
+#stream-view .description-panel>* {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+#stream-view .created-by {
+	color: #555;
+}
+
+#stream-view .created-on {
+	color: #ccc;
+	font-size: 80%;
+}
+
+#stream-view .tags {
+	float: right;
+	border: 1px solid #05a;
+	background: #acf;
+	padding: 2px 5px;
+	color: #05a;
+	border-radius: 5px;
+}
+
+#stream-view .views {
+	float: right;
+	margin: 5px;
+}
+
+#stream-view form {
+	border: 1px solid #ccc;
+	margin: 50px auto;
+	padding: 10px;
+}
+
+#stream-subscribe {
+	display: inline-block;
+	float: right;
+	margin: 10px auto;
+	text-align: center;
+	
+}
+
+/** Search */
+
+#search-wrapper form {
+	margin: 20px auto;
+	width: 300px;
+	padding: 0px;
+}
+
+input[name="query"] {
+	font-size: 110%;
+	padding: 2px 5px;
+	border: 1px solid #aaa;
+}
+
+#search-button {
+	font-size: 100%;
+	background: #0af;
+	color: #fff;
+	padding: 5px 7px;
+	border: 1px solid #fff;
+}
+
+#search-wrapper {
+	width: 700px;
+	margin: 0px auto;
+}
+
+#search-wrapper .gallery {
+	margin: 10px 0px;
+}
+
+#search-wrapper .search-result {
+	padding: 10px 0px;
+}
+
+#search-wrapper .search-result>* {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#search-wrapper .description {
+	padding-left: 15px;
+}
+
+#search-wrapper .tags {
+	display: inline-block;
+	padding: 3px 5px;
+	font-size: 80%;
+	background: #acf;
+	border: 1px solid #57a;
+	color: #57a;
+	margin-bottom: 5px;
+}
+
+#search-wrapper .created-by {
+	padding-top: 10px;
+}
+
+#search-wrapper .created-on {
+	font-size: 80%;
+	color: #aaa;
+}
+
+/** Stream View */
+#stream-view .gallery {
+	clear: both;
+}
+#stream-view .image {
+	display: inline-block;
+	vertical-align: top;
+	margin: 10px;
+	border: 1px solid #aaa;
+	width: 200px;
+}
+
+#stream-view .comments-wrapper {
+	padding: 5px;
+}
+
+#stream-view .comments-wrapper>* {
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+#stream-view .comments-wrapper .comments {
+	padding: 0px 5px;
+}
+
+#stream-view .comments-wrapper .username {
+	font-size: 80%;
+}
+
+#stream-view .comments-wrapper .created-on {
+	font-size: 60%;
+	padding: 0px 5px;
+}
+
+#stream-view .image img {
+	width: 200px;
+}

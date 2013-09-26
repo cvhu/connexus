@@ -1,0 +1,2 @@
+serviceClass: edu.utexas.connexus.client.GreetingService
+path: 21EC4CF1177D4DC3D9D60EFCA263035F.gwt.rpc

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5"
+         xmlns="http://java.sun.com/xml/ns/javaee">
+
+  <!-- Servlets -->
+  <servlet>
+    <servlet-name>streamAPI</servlet-name>
+    <servlet-class>edu.utexas.connexus.StreamServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>streamAPI</servlet-name>
+    <url-pattern>/api/stream/*</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>cimageAPI</servlet-name>
+    <servlet-class>edu.utexas.connexus.CImageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>cimageAPI</servlet-name>
+    <url-pattern>/api/image/*</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>subscriptionAPI</servlet-name>
+    <servlet-class>edu.utexas.connexus.SubscriptionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>subscriptionAPI</servlet-name>
+    <url-pattern>/api/subscription/*</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+    <filter-name>ObjectifyFilter</filter-name>
+    <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>ObjectifyFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+
+</web-app>
