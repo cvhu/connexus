@@ -37,17 +37,25 @@ public class SubscriptionServlet extends HttpServlet{
         User user = userService.getCurrentUser();
         
         req.setCharacterEncoding("utf8");
+        resp.setContentType("application/json");
+        PrintWriter printWriter = resp.getWriter();
         
-        String streamId = req.getParameter("stream_id");
+        String action = req.getPathInfo();
         
-        if (!exists(user, streamId)) {
-            Subscription subscription = new Subscription(user, streamId);
-            
-            ofy().save().entity(subscription).now();
-            
-            resp.setContentType("application/json");
-            PrintWriter printWriter = resp.getWriter();
-            printWriter.println(subscription.getJSON());
+        if (action.equals("/delete")) {
+            String[] streamIds = req.getParameterValues("stream_id");
+            for (int ind = 0; ind < streamIds.length; ind ++) {
+                Subscription subscription = getSubscription(user, streamIds[ind]);
+                ofy().delete().entity(subscription);
+                printWriter.println("success");
+            }
+        } else {
+            String streamId = req.getParameter("stream_id");
+            if (!exists(user, streamId)) {
+                Subscription subscription = new Subscription(user, streamId);
+                ofy().save().entity(subscription).now();
+                printWriter.println(subscription.getJSON());
+            }
         }
     }
     
@@ -84,13 +92,20 @@ public class SubscriptionServlet extends HttpServlet{
     }
     
     public boolean exists(User user, String streamId) {
+        if (getSubscription(user, streamId) != null) {
+            return true;
+        }
+        return false;
+    }
+    
+    public Subscription getSubscription(User user, String streamId) {
         List<Subscription> subscriptions = ofy().load().type(Subscription.class).list();
         for (Subscription subscription: subscriptions) {
             if (subscription.getUser().equals(user) && subscription.getStreamId().equals(streamId)) {
-                return true;
+                return subscription;
             }
         }
-        return false;
+        return null;
     }
 
 }

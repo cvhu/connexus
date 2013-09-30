@@ -4,6 +4,8 @@
 <html>
 <title>Connexus <jsp:invoke fragment="title"/></title>
     <head>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="/stylesheets/Connexus.css" />
         <link rel="stylesheet" href="/stylesheets/font-awesome/css/font-awesome.min.css" />
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

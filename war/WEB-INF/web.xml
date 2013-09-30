@@ -33,6 +33,24 @@
     <url-pattern>/api/subscription/*</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>userPropertyAPI</servlet-name>
+    <servlet-class>edu.utexas.connexus.UserPropertyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>userPropertyAPI</servlet-name>
+    <url-pattern>/api/userProperty/*</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>mailAPI</servlet-name>
+    <servlet-class>edu.utexas.connexus.MailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mailAPI</servlet-name>
+    <url-pattern>/api/mail/*</url-pattern>
+  </servlet-mapping>
+  
   <filter>
     <filter-name>ObjectifyFilter</filter-name>
     <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>

@@ -4,7 +4,21 @@ function buildStreams(data, wrapper) {
     }
 }
 
+function buildTrendingStreams(data, wrapper) {
+	for (var ind = 0; ind < data.length; ind++) {
+		var row = $("<div class='stream-trending'></div>").appendTo(wrapper);
+        buildTrendingStream(data[ind], row);
+        $('<div class="stream-views"></div>').html(data[ind].views + " view <span>in the past hour</span>").appendTo(row);
+    }
+}
+
 function buildStream(data, wrapper) {
+	var stream_div = $('<a class="stream"></a>').attr("href", "/stream.jsp?id=" + data.id).appendTo(wrapper);
+    $("<img>").attr("src", data.coverUrl).appendTo(stream_div);
+    $('<div class="stream-name"></div>').html(data.name).appendTo(stream_div);
+}
+
+function buildTrendingStream(data, wrapper) {
 	var stream_div = $('<a class="stream"></a>').attr("href", "/stream.jsp?id=" + data.id).appendTo(wrapper);
     $("<img>").attr("src", data.coverUrl).appendTo(stream_div);
     $('<div class="stream-name"></div>').html(data.name).appendTo(stream_div);

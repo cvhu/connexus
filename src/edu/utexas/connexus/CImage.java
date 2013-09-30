@@ -1,5 +1,6 @@
 package edu.utexas.connexus;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.google.appengine.api.users.User;
@@ -38,7 +39,7 @@ public class CImage implements Comparable<CImage>{
             jsonObject.put("streamName", streamName);
             jsonObject.put("comments", comments);
             jsonObject.put("bkUrl", bkUrl);
-            jsonObject.put("createdOn", createdOn.toString());
+            jsonObject.put("createdOn", new SimpleDateFormat("h:mm a MMM d").format(createdOn));
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -1,6 +1,7 @@
 package edu.utexas.connexus;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -20,6 +21,7 @@ public class Stream implements Comparable<Stream> {
     String coverUrl;
     String subscriberEmails;
     String subscriberMessage;
+    Integer rank;
     Date createdOn;
     List<Date> viewDates = new ArrayList<Date>();
     
@@ -35,6 +37,17 @@ public class Stream implements Comparable<Stream> {
         this.createdOn = new Date();
     }
     
+    public String getRank() {
+        if (rank == null) {
+            return "Not ranked";
+        }
+        return rank.toString();
+    }
+    
+    public void setRank(Integer r) {
+        rank = r;
+    }
+    
     public void view() {
         getViewsCount();
         Date now = new Date();
@@ -48,6 +61,14 @@ public class Stream implements Comparable<Stream> {
         
     }
     
+    public String getName() {
+        return name;
+    }
+    
+    public String getUrl() {
+        return "/stream.jsp?id=" + id;
+    }
+    
     public int getViewsCount() {
         if (viewDates == null) {
             viewDates = new ArrayList<Date>();
@@ -59,8 +80,12 @@ public class Stream implements Comparable<Stream> {
         return user;
     }
     
+    public String getId() {
+        return id.toString();
+    }
+    
     public boolean contains(String query) {
-        return name.contains(query) || tags.contains(query);
+        return name.toLowerCase().contains(query.toLowerCase()) || tags.toLowerCase().contains(query.toLowerCase());
     }
     
     public JSONObject getJSON() {
@@ -75,6 +100,7 @@ public class Stream implements Comparable<Stream> {
             jsonObject.put("subscriberMessage", subscriberMessage);
             jsonObject.put("createdOn", createdOn.toString());
             jsonObject.put("views", getViewsCount());
+            jsonObject.put("rank", getRank());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -83,6 +109,13 @@ public class Stream implements Comparable<Stream> {
     
     public String toString() {
         return getJSON().toString();
+    }
+    
+    public Integer getRankValue() {
+        if (rank == null) {
+            return Integer.MAX_VALUE;
+        }
+        return rank;
     }
     
     @Override
@@ -94,4 +127,16 @@ public class Stream implements Comparable<Stream> {
         }
         return 0;
     }
-    }
+    
+    public static Comparator<Stream> ViewsComparator = new Comparator<Stream>() {
+        public int compare(Stream stream1, Stream stream2) {
+            return stream1.getViewsCount() - stream2.getViewsCount();
+        }
+    };
+    
+    public static Comparator<Stream> RankComparator = new Comparator<Stream>() {
+        public int compare(Stream stream1, Stream stream2) {
+            return stream2.getRankValue() - stream1.getRankValue();
+        }
+    };
+}

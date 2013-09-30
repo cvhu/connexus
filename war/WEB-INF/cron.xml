@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cronentries>
-  
+  <cron>
+    <url>/api/stream/rank</url>
+    <description>Rank the stream views every 5 minutes</description>
+    <schedule>every 5 minutes</schedule>
+  </cron>
+  <cron>
+    <url>/api/mail/trending</url>
+    <description>Send trending mails every 5 minutes</description>
+    <schedule>every 5 minutes</schedule>
+  </cron>
 </cronentries>

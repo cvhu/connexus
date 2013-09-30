@@ -50,6 +50,13 @@ h1 {
 	width: 300px;
 }
 
+/** Social */
+
+#social {
+	width: 500px;
+	margin: 50px auto;
+	text-align: center;
+}
 
 .fb-button {
 	background-color: #445d92;
@@ -323,17 +330,32 @@ form>.form-field>input[type=submit] {
 #stream-subscribe {
 	display: inline-block;
 	float: right;
-	margin: 10px auto;
+	margin: 10px;
 	text-align: center;
 	
 }
 
+#stream-share {
+    display: inline-block;
+    float: right;
+    margin: 10px;
+    text-align: center;
+    
+}
+
+
 /** Search */
+
+#search-wrapper {
+	margin: 20px auto;
+    width: 400px;
+    padding: 0px;
+}
 
 #search-wrapper form {
 	margin: 20px auto;
-	width: 300px;
-	padding: 0px;
+    width: 300px;
+    padding: 0px;
 }
 
 input[name="query"] {
@@ -348,11 +370,6 @@ input[name="query"] {
 	color: #fff;
 	padding: 5px 7px;
 	border: 1px solid #fff;
-}
-
-#search-wrapper {
-	width: 700px;
-	margin: 0px auto;
 }
 
 #search-wrapper .gallery {
@@ -427,4 +444,132 @@ input[name="query"] {
 
 #stream-view .image img {
 	width: 200px;
+}
+
+/** Manage */
+
+
+#manage-page .title {
+	font-weight: bold;
+}
+
+#manage-page form {
+	width: 680px;
+	margin: 30px auto;
+}
+
+.manage-stream>* {
+	display: inline-block;
+	padding: 3px 5px;
+	margin: 1px;
+	height: 20px;
+	overflow: hidden;
+	vertical-align: top;
+}
+
+.manage-stream {
+	height: 30px;
+}
+
+.manage-stream-row:hover>* {
+	background: #fe5 !important;
+}
+
+.manage-stream .name {
+	width: 360px;
+	color: #555;
+}
+
+.manage-stream .view-count {
+	width: 30px;
+	text-align: right;
+}
+
+.manage-stream .last-image {
+	width: 120px;
+	padding-left: 10px;
+}
+
+.manage-stream .image-count {
+	width: 40px;
+	text-align: right;
+}
+
+.manage-stream .check-box {
+	width: 60px;
+	text-align: right;
+}
+
+.manage-stream-row:nth-child(odd)>* {
+	background: #eee;
+}
+
+.manage-stream.title {
+	font-size: 60%;
+}
+.manage-stream-row .last-image {
+    font-size: 80%;
+}
+
+#manage-page .submit {
+	padding-top: 20px;
+	text-align: center;
+}
+
+#manage-page form {
+	border: 1px solid #ddd;
+	padding: 20px;
+}
+
+/** Trending view */
+
+#view-trending-streams .stream {
+    margin: 10px;
+}
+
+#view-trending-streams .gallery {
+    width: 520px;
+    margin: 0px auto;
+}
+
+.stream-trending {
+	display: inline-block;
+}
+
+.stream-trending .stream-views {
+	padding-left: 10px;
+}
+
+.stream-trending .stream-views span {
+	font-size: 80%;
+	color: #aaa;
+}
+
+#view-trending-streams form{
+	width: 200px;
+}
+
+#view-trending-streams .report-frequency {
+	padding: 5px 0px;
+	width: 100%;
+}
+
+#view-trending-streams .report-frequency.button {
+	text-align: center;
+}
+
+#view-trending-streams form {
+	padding: 5px 15px;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+}
+
+#error-message {
+	
+	text-align: center;
+	color: #f00;
+	border: #f00 1px solid;
+	background: #fcc;
+	margin: 20px;
+	padding: 10px;
 }

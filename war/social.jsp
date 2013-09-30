@@ -77,6 +77,7 @@
             
             function update_fb_api(response) {
                 console.log('Welcome! Fetching your information... ');
+                $("#social").html("Successfully logged in with Facebook. <br> Now you can post streams as status updates.");
                 
                 access_token = response.authResponse.accessToken;
                 user_id = response.authResponse.userID;
@@ -92,8 +93,11 @@
                 Learn more about options for the login button plugin:
                 /docs/reference/plugins/login/ -->
                 <!-- <fb:login-button show-faces="true" autologoutlink="true" size="large" width="100" max-rows="1"></fb:login-button> -->
-                <a class="btn fb-button" href="#" onclick="fb_login();">
-                <i class="icon-facebook icon-2x"></i> <span>Log in with Facebook</span>
-            </a>
+                <div id="social">
+                    <a class="btn fb-button" href="#" onclick="fb_login();">
+                        <i class="icon-facebook icon-2x"></i> <span>Log in with Facebook</span>
+                    </a>
+                </div>
+                
     </jsp:body>
 </t:wrapper>
