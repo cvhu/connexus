@@ -1,3 +1,2 @@
 # Module connexus
 # RPC service class, partial path of RPC policy file
-edu.utexas.connexus.client.GreetingService, 21EC4CF1177D4DC3D9D60EFCA263035F.gwt.rpc

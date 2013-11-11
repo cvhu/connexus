@@ -20,7 +20,6 @@ import com.googlecode.objectify.ObjectifyService;
 
 import static com.googlecode.objectify.ObjectifyService.ofy;
 
-
 public class StreamServlet extends HttpServlet{
     static {
         ObjectifyService.register(Stream.class);
@@ -81,17 +80,13 @@ public class StreamServlet extends HttpServlet{
             printWriter.println(stream.toString());
         } else if (action.equals("/search")) {
             String query = req.getParameter("query");
-            List<Stream> streams = ofy().load().type(Stream.class).list();
-            Collections.sort(streams);
-            Collections.reverse(streams);
+            List<String> streamIds = SearchIndex.search(query);
             List<Stream> results = new ArrayList<Stream>();
-            for (int ind = 0; ind < streams.size(); ind++) {
-                Stream stream = streams.get(ind);
-                if (stream.contains(query)) {
-                    results.add(stream);
-                    if (results.size() == 5) {
-                        break;
-                    }
+            for (String streamId : streamIds) {
+                Stream stream = ofy().load().type(Stream.class).id(Long.parseLong(streamId)).get();
+                results.add(stream);
+                if (results.size() == 20) {
+                    break;
                 }
             }
             printWriter.println(results.toString());

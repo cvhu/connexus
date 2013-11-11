@@ -51,6 +51,15 @@
     <url-pattern>/api/mail/*</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>searchAPI</servlet-name>
+    <servlet-class>edu.utexas.connexus.SearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>searchAPI</servlet-name>
+    <url-pattern>/api/search/*</url-pattern>
+  </servlet-mapping>
+  
   <filter>
     <filter-name>ObjectifyFilter</filter-name>
     <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>

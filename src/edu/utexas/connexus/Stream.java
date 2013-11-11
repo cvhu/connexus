@@ -48,6 +48,10 @@ public class Stream implements Comparable<Stream> {
         rank = r;
     }
     
+    public String getTags() {
+        return tags;
+    }
+    
     public void view() {
         getViewsCount();
         Date now = new Date();

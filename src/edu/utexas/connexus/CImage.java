@@ -60,6 +60,14 @@ public class CImage implements Comparable<CImage>{
         return user.getNickname();
     }
     
+    public String getStreamId() {
+        return streamId;
+    }
+    
+    public String getComment() {
+        return comments;
+    }
+    
     @Override
     public String toString() {
         return getJSON().toString();
