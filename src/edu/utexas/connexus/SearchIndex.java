@@ -1,7 +1,10 @@
 package edu.utexas.connexus;
 
+import static com.googlecode.objectify.ObjectifyService.ofy;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -14,8 +17,6 @@ import com.google.appengine.labs.repackaged.org.json.JSONObject;
 import com.googlecode.objectify.ObjectifyService;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
-
-import static com.googlecode.objectify.ObjectifyService.ofy;
 
 @Entity
 public class SearchIndex implements Comparable<SearchIndex> {
@@ -48,17 +49,19 @@ public class SearchIndex implements Comparable<SearchIndex> {
     }
     
     public static void buildIndex(String text, String streamId) {
-        String processedText = text.toLowerCase().replaceAll("[^a-z0-9]", " ");
-        StringTokenizer tokenizer = new StringTokenizer(processedText);
-        while (tokenizer.hasMoreTokens()) {
-            String key = tokenizer.nextToken().trim();
-            System.out.println("Indexing " + key);
-            SearchIndex index = indexMap.get(key);
-            if (index == null) {
-                index = new SearchIndex(key);
+        if (text != null) {
+            String processedText = text.toLowerCase().replaceAll("[^a-z0-9]", " ");
+            StringTokenizer tokenizer = new StringTokenizer(processedText);
+            while (tokenizer.hasMoreTokens()) {
+                String key = tokenizer.nextToken().trim();
+                System.out.println("Indexing " + key);
+                SearchIndex index = indexMap.get(key);
+                if (index == null) {
+                    index = new SearchIndex(key);
+                }
+                index.addStreamId(streamId);
+                indexMap.put(key, index);
             }
-            index.addStreamId(streamId);
-            indexMap.put(key, index);
         }
     }
     
@@ -83,7 +86,9 @@ public class SearchIndex implements Comparable<SearchIndex> {
     }
     
     public static List<SearchIndex> getIndices() {
-        return ofy().load().type(SearchIndex.class).list();
+        List<SearchIndex> indices = ofy().load().type(SearchIndex.class).list();
+        Collections.sort(indices);
+        return indices;
     }
     
     public void setStreamIds(List<String> streamIds) {

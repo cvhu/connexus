@@ -82,11 +82,15 @@ public class StreamServlet extends HttpServlet{
             String query = req.getParameter("query");
             List<String> streamIds = SearchIndex.search(query);
             List<Stream> results = new ArrayList<Stream>();
-            for (String streamId : streamIds) {
-                Stream stream = ofy().load().type(Stream.class).id(Long.parseLong(streamId)).get();
-                results.add(stream);
-                if (results.size() == 20) {
-                    break;
+            if ((streamIds == null) || streamIds.isEmpty()) {
+                
+            } else {
+                for (String streamId : streamIds) {
+                    Stream stream = ofy().load().type(Stream.class).id(Long.parseLong(streamId)).get();
+                    results.add(stream);
+                    if (results.size() == 20) {
+                        break;
+                    }
                 }
             }
             printWriter.println(results.toString());
