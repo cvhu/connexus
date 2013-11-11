@@ -61,7 +61,7 @@ public class MailServlet extends HttpServlet{
 //            sendMail.send("vic@cvhu.org", " rate == null", "test body 2");
             return;
         }
-        if (rate.equals("no_report")) {
+        if (rate.equals("no_reports")) {
 //            sendMail.send("vic@cvhu.org", "no report", "test body 2");
             return;
         }

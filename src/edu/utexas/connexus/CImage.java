@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.google.appengine.api.users.User;
+import com.google.appengine.labs.repackaged.org.json.JSONArray;
 import com.google.appengine.labs.repackaged.org.json.JSONException;
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
 import com.googlecode.objectify.annotation.Entity;
@@ -38,7 +39,13 @@ public class CImage implements Comparable<CImage>{
             jsonObject.put("streamId", streamId);
             jsonObject.put("streamName", streamName);
             jsonObject.put("comments", comments);
+            jsonObject.put("name", comments);
             jsonObject.put("bkUrl", bkUrl);
+            jsonObject.put("url", bkUrl);
+            jsonObject.put("thumbnailUrl", bkUrl);
+            jsonObject.put("deleteUrl", bkUrl);
+            jsonObject.put("deleteType", "DELETE");
+            jsonObject.put("size", 100);
             jsonObject.put("createdOn", new SimpleDateFormat("h:mm a MMM d").format(createdOn));
         } catch (JSONException e) {
             e.printStackTrace();
@@ -56,6 +63,18 @@ public class CImage implements Comparable<CImage>{
     @Override
     public String toString() {
         return getJSON().toString();
+    }
+    
+    public String uploaderToString() {
+        try {
+            JSONObject jsonObject = new JSONObject();
+            JSONArray jsonArray = new JSONArray(getJSON());
+            jsonObject.put("files", jsonArray);
+            return jsonObject.toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override

@@ -42,7 +42,7 @@ public class CImageServlet extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
         Map<String, BlobKey> blobs = blobstoreService.getUploadedBlobs(req);
-        BlobKey blobKey = blobs.get("filename");
+        BlobKey blobKey = blobs.get("files[]");
         ImagesService imagesService = ImagesServiceFactory.getImagesService();
         String bkUrl = imagesService.getServingUrl(blobKey);
         
@@ -60,7 +60,7 @@ public class CImageServlet extends HttpServlet {
         ofy().save().entity(cimage).now();
         
         PrintWriter printWriter = resp.getWriter();
-        printWriter.println(cimage.toString());
+        printWriter.println(cimage.uploaderToString());
         resp.sendRedirect("/stream.jsp?id=" + streamId);
     }
     
@@ -80,7 +80,7 @@ public class CImageServlet extends HttpServlet {
             String streamId = req.getParameter("stream-id");
             for (Iterator<CImage> it = cimages.iterator(); it.hasNext();) {
                 CImage cimage= it.next();
-                if (!cimage.streamId.equals(streamId)) {
+                if ((cimage.streamId == null) || !cimage.streamId.equals(streamId)) {
                     it.remove();
                 }
             }
