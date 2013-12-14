@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 /test-classes
-=======
 *.class
 
 # Package Files #
 *.jar
 *.war
 *.ear
->>>>>>> 27891d46411a8242107af4cd9c5abadabc1cb713
